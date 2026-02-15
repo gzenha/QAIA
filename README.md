@@ -162,4 +162,10 @@ Landing → Configurador → Checkout → Análise de Crédito → Confirmação
 npm run dev      # Desenvolvimento
 npm run build    # Build de produção
 npm run lint     # Verificar código
+
+## Subir o projeto
+yarn dev
+
+## subir o projeto com o playwright
+yarn playwright codegen http://localhost:5173
 ```
