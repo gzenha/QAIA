@@ -65,22 +65,22 @@ VITE_SUPABASE_URL="https://seu_project_id.supabase.co"
 
 ```bash
 # Instalar CLI
-npm install -g supabase
+#npm install -g supabase
 yarn add supabase -D
 # Login e vincular projeto
 supabase login
 supabase link --project-ref SEU_PROJECT_ID
 
-yarn supabase login
-yarn supabase link --project-ref mdbedfsvjplkswimbeur
+#yarn supabase login
+#yarn supabase link --project-ref mdbedfsvjplkswimbeur
 
 # Aplicar migrações (cria tabelas e RLS)
 supabase db push
-yarn supabase db push
+#yarn supabase db push
 
 # Deploy das Edge Functions
 supabase functions deploy
-yarn supabase functions deploy
+#yarn supabase functions deploy
 ```
 
 Pronto! O banco e as functions estarão configurados.
@@ -164,14 +164,14 @@ npm run build    # Build de produção
 npm run lint     # Verificar código
 
 ## Subir o projeto
-yarn dev
+#yarn dev
 
 ## subir o projeto com o playwright
-yarn playwright codegen http://localhost:5173
+#yarn playwright codegen http://localhost:5173
 
 #Debug
-yarn playwright debug
+#yarn playwright debug
 
 # ver execução do test
-yarn playwright test --head
+#yarn playwright test --head
 ```
