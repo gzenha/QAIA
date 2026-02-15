@@ -168,4 +168,10 @@ yarn dev
 
 ## subir o projeto com o playwright
 yarn playwright codegen http://localhost:5173
+
+#Debug
+yarn playwright debug
+
+# ver execução do test
+yarn playwright test --head
 ```
