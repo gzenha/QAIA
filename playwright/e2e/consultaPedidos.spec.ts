@@ -6,6 +6,6 @@ test('Consulta de Pedidos Aprovados', async ({ page }) => {
   await page.getByRole('link', { name: 'Consultar Pedido' }).click();
   /*await page.getByTestId('search-order-id').click();  */
   await page.getByTestId('search-order-id').fill('VLO-I2798P');
-  await page.getByRole('button', { name: 'Buscar Pedido' }).click();
+  await page.getByRole('button', { name: 'Buscar Pedido' }).click({timeout: 10000});
   await expect(page.getByText('Aprovado')).toBeVisible();
 });
