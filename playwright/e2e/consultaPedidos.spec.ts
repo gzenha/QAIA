@@ -7,5 +7,14 @@ test('Consulta de Pedidos Aprovados', async ({ page }) => {
   /*await page.getByTestId('search-order-id').click();  */
   await page.getByTestId('search-order-id').fill('VLO-I2798P');
   await page.getByRole('button', { name: 'Buscar Pedido' }).click({timeout: 10000});
-  await expect(page.getByText('Aprovado')).toBeVisible();
+  
+
+   // verificar se o container do pedido foi exibido
+   const containerPedido = page.getByRole('paragraph')
+   .filter({ hasText: 'Pedido' })
+   .locator('..')
+   await expect(containerPedido).toBeVisible();
+
+ // verificar se o pedido foi aprovado
+   await expect(page.getByText('Aprovado')).toBeVisible();
 });
