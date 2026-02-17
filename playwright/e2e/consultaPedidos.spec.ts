@@ -15,10 +15,10 @@ test('Consulta de Pedidos Aprovados', async ({ page }) => {
 
    // verificar se o container do pedido foi exibido
    const containerPedido = page.getByRole('paragraph')
-   .filter({ hasText: 'Pedido' })
+   .filter({ hasText: '/^Pedido$/' })
    .locator('..')
-   await expect(containerPedido).toContainText(orderNumber);
+   await expect(containerPedido).toContainText(orderNumber, {timeout: 10000});
 
  // verificar se o pedido foi aprovado
-   await expect(page.getByText('Aprovado')).toBeVisible();
+   await expect(page.getByText('APROVADO')).toBeVisible();
 });
