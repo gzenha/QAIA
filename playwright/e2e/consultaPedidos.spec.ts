@@ -1,13 +1,40 @@
+
 import { test, expect } from '@playwright/test';
+import { gerarCodigoPedido } from '../function/order';
+
+// test.describe('Consulta pedido', ()=> {
+//   test.beforeAll(async () => {
+//     //roda uma vez antes de todos os testes
+
+// })
+
+test.describe('Consulta pedido', ()=> {
+  
+test.beforeEach(async ({page}) => {
+    //roda uma vez antes de cada teste
+
+  await page.goto('http://localhost:5173/');
+  await expect(page.getByTestId('hero-section').getByRole('heading')).toContainText('Velô Sprint');
+  await page.getByRole('link', { name: 'Consultar Pedido' }).click();
+})
+
+// test.describe('Consulta pedido', ()=> {
+//   test.afterAll(async () => {
+//     //roda uma vez depois de todos os testes
+
+// })
+
+// test.describe('Consulta pedido', ()=> {
+//   test.afterEach(async () => {
+//     //roda uma vez depois de cada estes
+
+// })
 
 test('Consulta de Pedidos Aprovados', async ({ page }) => {
 
   // numero do pedido
   const orderNumber = 'VLO-I2798P';
 
-  await page.goto('http://localhost:5173/');
-  await expect(page.getByTestId('hero-section').getByRole('heading')).toContainText('Velô Sprint');
-  await page.getByRole('link', { name: 'Consultar Pedido' }).click();
   /*await page.getByTestId('search-order-id').click();  */
   await page.getByTestId('search-order-id').fill(orderNumber);
   await page.getByRole('button', { name: 'Buscar Pedido' }).click({timeout: 10000});
@@ -23,13 +50,11 @@ test('Consulta de Pedidos Aprovados', async ({ page }) => {
    await expect(page.getByText('APROVADO')).toBeVisible();
 });
 
+
+
 test('Teste de validacao de item nao encontrado', async ({ page }) => {
 
-  const orderNumber = 'VLO-IGT123';
-
-  await page.goto('http://localhost:5173/');  
-  await expect(page.getByTestId('hero-section').getByRole('heading')).toContainText('Velô Sprint');
-  await page.getByRole('link', { name: 'Consultar Pedido' }).click();
+  const orderNumber = gerarCodigoPedido();
 
   await page.getByTestId('search-order-id').fill(orderNumber);
   await page.getByRole('button', { name: 'Buscar Pedido' }).click({timeout: 10000});
@@ -58,3 +83,5 @@ await expect(page.locator('#root')).toMatchAriaSnapshot(`
 
 
 });
+
+})
