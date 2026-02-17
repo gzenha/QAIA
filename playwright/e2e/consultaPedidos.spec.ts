@@ -13,7 +13,7 @@ test('Consulta de Pedidos Aprovados', async ({ page }) => {
    const containerPedido = page.getByRole('paragraph')
    .filter({ hasText: 'Pedido' })
    .locator('..')
-   await expect(containerPedido).toBeVisible();
+   await expect(containerPedido).toContainText('VLO-I2798P');
 
  // verificar se o pedido foi aprovado
    await expect(page.getByText('Aprovado')).toBeVisible();
